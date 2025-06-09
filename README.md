@@ -301,5 +301,38 @@ const peek = queue[0];
 const isEmpty = queue.length === 0;
 ```
 
+---
+
+# 🔤 Prefix Structures in JavaScript
+
+There are **two main patterns**:
+
+## 1. ✅ Prefix Sum (also: "Prefix Array")
+
+Used in **arrays/numbers** for quick range sum or frequency calculations.
+
+### 👉 Use Case
+
+* Range sum queries: “What’s the sum from index `i` to `j`?”
+* Subarray problems (e.g. count of subarrays with sum ≤ K)
+
+### 🔧 Code Example
+
+```js
+const nums = [1, 2, 3, 4];
+const prefixSum = [0];
+
+for (let i = 0; i < nums.length; i++) {
+  prefixSum[i + 1] = prefixSum[i] + nums[i];
+}
+
+console.log(prefixSum); // [0, 1, 3, 6, 10]
+
+// Range sum from index i to j (inclusive)
+const rangeSum = (i, j) => prefixSum[j + 1] - prefixSum[i];
+console.log(rangeSum(1, 3)); // 2 + 3 + 4 = 9
+```
+
+---
 
 
