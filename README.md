@@ -323,6 +323,101 @@ function solveTabulation(size1, size2, ...) {
 
 ---
 
-This cheat sheet should give you a strong foundation for approaching and solving Dynamic Programming problems!
+# 🧵 Singly Linked List in JavaScript
 
+## 📌 1. Define a Node
+
+```js
+class ListNode {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+```
+
+---
+
+## 📌 2. Define the LinkedList Class
+
+```js
+class LinkedList {
+  constructor() {
+    this.head = null;
+  }
+
+  // Add node at the end
+  append(value) {
+    const newNode = new ListNode(value);
+    if (!this.head) {
+      this.head = newNode;
+      return;
+    }
+
+    let current = this.head;
+    while (current.next) {
+      current = current.next;
+    }
+    current.next = newNode;
+  }
+
+  // Add node at the beginning
+  prepend(value) {
+    const newNode = new ListNode(value);
+    newNode.next = this.head;
+    this.head = newNode;
+  }
+
+  // Print the list
+  print() {
+    let current = this.head;
+    const values = [];
+    while (current) {
+      values.push(current.value);
+      current = current.next;
+    }
+    console.log(values.join(" -> "));
+  }
+
+  // Delete a node by value
+  delete(value) {
+    if (!this.head) return;
+
+    if (this.head.value === value) {
+      this.head = this.head.next;
+      return;
+    }
+
+    let current = this.head;
+    while (current.next && current.next.value !== value) {
+      current = current.next;
+    }
+
+    if (current.next) {
+      current.next = current.next.next;
+    }
+  }
+}
+```
+
+---
+
+## ✅ 3. Example Usage
+
+```js
+const list = new LinkedList();
+
+list.append(10);
+list.append(20);
+list.append(30);
+list.prepend(5);
+
+list.print(); // Output: 5 -> 10 -> 20 -> 30
+
+list.delete(20);
+
+list.print(); // Output: 5 -> 10 -> 30
+```
+
+---
 
