@@ -249,4 +249,57 @@ list.delete(20);
 list.print(); // Output: 5 -> 10 -> 30
 ```
 ---
+Here’s a clean Markdown reference for implementing a **Stack** and **Queue** in JavaScript:
+
+---
+
+# 📚 Stack and Queue in JavaScript
+
+---
+
+## 🥞 Stack (LIFO - Last In, First Out)
+
+### ✅ Using Array (built-in)
+
+```js
+const stack = [];
+
+// Push
+stack.push(10);
+stack.push(20);
+
+// Pop
+const top = stack.pop(); // 20
+
+// Peek
+const peek = stack[stack.length - 1]; // 10
+
+// Check empty
+const isEmpty = stack.length === 0;
+```
+
+---
+
+## 🧃 Queue (FIFO - First In, First Out)
+
+### ✅ Using Array (inefficient `shift()`)
+
+```js
+const queue = [];
+
+// Enqueue
+queue.push(10);
+queue.push(20);
+
+// Dequeue
+const first = queue.shift(); // 10
+
+// Peek
+const peek = queue[0];
+
+// Check empty
+const isEmpty = queue.length === 0;
+```
+
+
 
